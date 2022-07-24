@@ -48,5 +48,5 @@ if __name__ == '__main__':
     timeout = user_input.timeout
     passlist = open(passlist).read().splitlines()
     for password in passlist:
-        if ssh_open(hostname,username,password)
+        if ssh_open(hostname,username,password):
             break
